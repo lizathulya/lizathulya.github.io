@@ -1,247 +1,181 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Athulya Liz Mathew — Portfolio</title>
-  <meta name="description" content="Portfolio of Athulya Liz Mathew — human-centered AI, data science, and secure systems for vulnerable populations." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Athulya Mathew — Human-Centered AI & Security</title>
+  <meta name="description" content="Athulya Mathew — research, AI for vulnerable populations, data science, and secure systems." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --navy:#071A3F;
-      --gold:#D4AF37;
-      --muted:#6B7280;
-      --glass: rgba(255,255,255,0.03);
-      --rounded:14px;
-      --maxw:1100px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    :root {
+      --bg: #0d0f25;
+      --fg: #e6eef8;
+      --accent: #D4AF37;
+      --muted: #6B7280;
+      --round: 12px;
+      --transition: 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#03102a 0%, #071a3f 100%);color:#e6eef8}
-    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#f6e6b4);display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:700;font-size:18px}
-    nav a{color:#cfe6ff;text-decoration:none;margin-left:18px;font-weight:600}
-    nav a.cta{background:var(--gold);color:var(--navy);padding:8px 14px;border-radius:10px}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width:100%; height:100%; background:var(--bg); color:var(--fg); }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
 
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:44px 0}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--rounded);padding:22px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-    h1{margin:0;font-size:34px;line-height:1.05}
-    h2{margin:0;font-size:20px;color:var(--gold)}
-    p.lead{color:#cfe6ff;margin-top:10px;max-width:52ch}
-
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-    .tag{border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:999px;font-weight:600}
-
-    .profile-img{width:100%;min-height:260px;border-radius:12px;background:linear-gradient(180deg,#082146, #0b2544);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;font-size:28px}
-
-    section{margin-top:28px}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-
-    .project{display:flex;gap:14px;align-items:flex-start}
-    .project .thumb{width:84px;height:64px;border-radius:8px;background:linear-gradient(135deg,#0c2a52,#09203a);display:flex;align-items:center;justify-content:center;font-weight:700}
-    .meta{color:var(--muted);font-size:13px}
-
-    footer{padding:28px 0;color:var(--muted);font-size:14px}
-
-    @media (max-width:930px){
-      .hero{grid-template-columns:1fr;}
-      nav{display:none}
+    /* — NAV */
+    header {
+      width: 100%;
+      padding: 18px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      background:rgba(13,15,37,0.85);
+      backdrop-filter:blur(8px);
+      z-index: 10;
     }
+    .logo { font-size:24px; font-weight:700; color:var(--accent); }
+    nav ul { display:flex; gap:24px; }
+    nav ul li a { font-weight:600; font-size:15px; }
+
+    /* — Hero */
+    .hero {
+      padding: 160px 36px 80px;
+      text-align:left;
+      max-width:900px;
+      margin:auto;
+    }
+    .hero h1 { font-size:42px; line-height:1.1; margin-bottom:12px; color:var(--accent); }
+    .hero p { font-size:18px; margin-bottom:20px; color:var(--fg); max-width:660px; }
+
+    .btn {
+      padding:12px 22px;
+      border-radius:var(--round);
+      font-weight:700;
+      cursor:pointer;
+      transition:var(--transition);
+    }
+    .btn-primary { background:var(--accent); color:var(--bg); }
+    .btn-outline { border:2px solid var(--accent); color:var(--accent); background:none; }
+
+    /* — Sections */
+    section {
+      padding: 80px 36px;
+      max-width: 920px;
+      margin: auto;
+    }
+    h2.section-title {
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--accent);
+    }
+    .cards {
+      display: grid;
+      gap:24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background:rgba(255,255,255,0.04);
+      padding:18px;
+      border-radius:var(--round);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+      transition:var(--transition);
+    }
+    .card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 12px 28px rgba(0,0,0,0.6);
+    }
+    .card h3 { font-size:20px; font-weight:700; margin-bottom:8px; }
+    .card p { font-size:15px; color:var(--muted); }
+
+    /* — Footer */
+    footer { text-align:center; padding:24px 0; color:var(--muted); font-size:14px; }
   </style>
 </head>
-<body>
-<div class="container">
 
-<header>
-  <div class="brand">
-    <div class="logo">AL</div>
-    <div>
-      <div style="font-weight:700">Athulya Liz Mathew</div>
-      <div style="font-size:13px;color:var(--muted)">
-        Human-centered AI · Data Science · Secure Systems
+<body>
+
+  <!-- NAV -->
+  <header>
+    <div class="logo">Athulya M.</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#pubs">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <h1>Hello — I’m Athulya</h1>
+    <p>
+      I build **human-centered AI systems, secure data infrastructures, and research workflows**
+      that serve vulnerable and high-stakes communities — with accountability, interpretability,
+      and human dignity at the center.
+    </p>
+    <a href="#work" class="btn btn-primary">See my work</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <h2 class="section-title">Selected Work</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Adaptive Voice Accessibility</h3>
+        <p>Interactive prototypes for assistive audio interfaces with privacy-first ML pipelines.</p>
+      </div>
+      <div class="card">
+        <h3>Plasmonic Diagnostics + Data Pipelines</h3>
+        <p>Scalable processing frameworks for biomedical research with interdisciplinary teams.</p>
+      </div>
+      <div class="card">
+        <h3>CyRARR Security Framework</h3>
+        <p>Distributed automated response engines for critical infrastructure cyber-resilience.</p>
+      </div>
+      <div class="card">
+        <h3>fNIRS Signal Analytics</h3>
+        <p>Cloud pre-processing + visualization stack for cognitive neuroscience sensors.</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#research">Research</a>
-    <a href="#awards">Awards</a>
-    <a href="#contact" class="cta">Contact</a>
-  </nav>
-</header>
+  <!-- PUBLICATIONS -->
+  <section id="pubs">
+    <h2 class="section-title">Research & Publications</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Inclusive AI Systems (draft)</h3>
+        <p>Manuscript in preparation — ethical benchmarks for assistive ML.</p>
+      </div>
+      <div class="card">
+        <h3>Biomarkers + Plasmonic Multiplexing</h3>
+        <p>Conference work in development — secure data pipelines + analysis.</p>
+      </div>
+    </div>
+  </section>
 
-<main>
-
-<section class="hero card">
-  <div>
-    <h1>
-      Hi — I’m <span style="color:var(--gold)">Athulya</span>.<br>
-      I study and build AI systems for people who are often overlooked.
-    </h1>
-
-    <p class="lead">
-      My work sits at the intersection of data science, human-centered design,
-      and cybersecurity. I focus on how intelligent systems behave in real-world,
-      high-stakes settings — especially for vulnerable and marginalized populations.
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p>
+      For PhD inquiries, research collaborations, or speaking engagements:
+      <br><strong><a href="mailto:athulya.mathew@example.com" style="color:var(--accent)">athulya.mathew@example.com</a></strong>
     </p>
+  </section>
 
-    <div class="skills">
-      <div class="tag">Python</div>
-      <div class="tag">Machine Learning</div>
-      <div class="tag">Human-Centered AI</div>
-      <div class="tag">Security & Privacy</div>
-      <div class="tag">SQL & R</div>
-      <div class="tag">Research</div>
-    </div>
+  <footer>
+    Built with intention — © 2026 Athulya Mathew
+  </footer>
 
-    <div style="margin-top:18px;display:flex;gap:10px">
-      <a class="btn" href="#projects" style="background:var(--gold);color:var(--navy)">View work</a>
-      <a class="btn btn-outline" href="#contact">Contact</a>
-    </div>
-
-    <div style="margin-top:14px;color:var(--muted);font-size:14px">
-      Download: <a id="resumeLink" href="#" style="color:var(--gold);font-weight:700">Resume (PDF)</a>
-    </div>
-  </div>
-
-  <aside class="profile-img">AL</aside>
-</section>
-
-<section id="about" class="card">
-  <h2>About me</h2>
-  <p>
-    I am a master’s student in Data Science with a background spanning cybersecurity,
-    biomedical sensing, and applied machine learning. My core research interest lies
-    in understanding who bears the cost when intelligent systems fail — and how we can
-    design AI that is accountable, interpretable, and inclusive by design.
-  </p>
-
-  <div style="margin-top:12px;display:flex;gap:14px;flex-wrap:wrap">
-    <div class="card" style="flex:1;min-width:220px">
-      <h3>Experience</h3>
-      <p class="meta">
-        Research collaborations, applied ML systems, cybersecurity and data pipelines.
-      </p>
-    </div>
-    <div class="card" style="flex:1;min-width:220px">
-      <h3>Currently seeking</h3>
-      <p class="meta">
-        PhD opportunities, research collaborations, and human-centered AI projects.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="card">
-  <h2>Selected projects</h2>
-  <div class="grid-2" id="projectsGrid"></div>
-</section>
-
-<section id="research" class="card">
-  <h2>Research & Writing</h2>
-  <div id="researchList"></div>
-</section>
-
-<section id="awards" class="card">
-  <h2>Awards & Certifications</h2>
-  <div id="awardsList"></div>
-</section>
-
-<section id="contact" class="card">
-  <h2>Contact</h2>
-  <p>
-    For research collaborations or academic inquiries:
-    <a id="emailLink" href="#" style="color:var(--gold)">your.email@example.com</a>
-  </p>
-  <p class="meta">
-    You can also find me on
-    <a href="https://www.linkedin.com/" style="color:var(--gold)">LinkedIn</a>.
-  </p>
-</section>
-
-</main>
-
-<footer style="text-align:center">
-  <div class="meta">
-    Built with intention · Designed to evolve with my research
-  </div>
-</footer>
-
-</div>
-
-<script>
-const siteData = {
-  name: "Athulya Liz Mathew",
-  headline: "Human-centered AI for vulnerable populations",
-  resume: "assets/Athulya_Liz_Mathew_Resume.pdf",
-  email: "athulya.mathew@example.com",
-  projects: [
-    {
-      title:"Assistive Voice Interface",
-      desc:"Privacy-aware, audio-first interaction system for visually impaired users.",
-      tag:"Accessibility / HCI"
-    },
-    {
-      title:"Plasmonic Diagnostic Pipelines",
-      desc:"Data workflows for multiplexed biomarker detection in biomedical research.",
-      tag:"Biomedical Data"
-    },
-    {
-      title:"CyRARR: OT Security Response",
-      desc:"Distributed response frameworks for securing critical infrastructure.",
-      tag:"Cybersecurity"
-    },
-    {
-      title:"fNIRS Signal Analytics",
-      desc:"Cloud-based preprocessing and analysis for cognitive neuroscience studies.",
-      tag:"Signal Processing"
-    }
-  ],
-  publications:[
-    {title:"Inclusive AI Systems in High-Stakes Contexts (draft)", venue:"Manuscript in preparation", link:"#"}
-  ],
-  awards:[
-    {title:"IBM Cybersecurity Analyst Certification", year:2024}
-  ]
-};
-
-document.getElementById('resumeLink').href = siteData.resume;
-const emailLink = document.getElementById('emailLink');
-emailLink.href = 'mailto:' + siteData.email;
-emailLink.textContent = siteData.email;
-
-const pgrid = document.getElementById('projectsGrid');
-siteData.projects.forEach(p=>{
-  const el = document.createElement('div');
-  el.className='project card';
-  el.innerHTML = `
-    <div class="thumb">${p.title[0]}</div>
-    <div>
-      <div style="font-weight:700">${p.title}</div>
-      <div class="meta">${p.tag}</div>
-      <div style="margin-top:6px">${p.desc}</div>
-    </div>`;
-  pgrid.appendChild(el);
-});
-
-const rlist = document.getElementById('researchList');
-siteData.publications.forEach(pub=>{
-  const d = document.createElement('div');
-  d.style.marginTop='10px';
-  d.innerHTML = `<strong>${pub.title}</strong><div class="meta">${pub.venue}</div>`;
-  rlist.appendChild(d);
-});
-
-const alist = document.getElementById('awardsList');
-siteData.awards.forEach(a=>{
-  const d = document.createElement('div');
-  d.style.marginTop='8px';
-  d.innerHTML = `<strong>${a.title}</strong><div class="meta">${a.year}</div>`;
-  alist.appendChild(d);
-});
-</script>
 </body>
 </html>
